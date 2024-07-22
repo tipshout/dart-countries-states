@@ -1,6 +1,6 @@
 name: dart_countries_states
 description: A Dart project that contains all the countries information about them. Support multiple languages.
-version: 0.2.1
+version: 0.1.1
 homepage: https://github.com/jffiorillo/dart-countries-states
 
 environment:
@@ -9,10 +9,10 @@ environment:
 dependencies:
   built_collection: ^5.0.0
   built_value: ^8.0.4
-  http: ^0.13.1
-  logger: ^1.0.0
+  http: ^1.1.0
+  logger: ^2.3.0
 
 dev_dependencies:
-  build_runner: ^1.12.2
+  build_runner: ^2.4.11
   built_value_generator: ^8.0.4
   test: ^1.16.8
