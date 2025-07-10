@@ -11,6 +11,15 @@ import 'models/alpha3_code.dart';
 import 'models/country.dart';
 
 const _endpointUrl = 'https://restcountries.com/v2/all';
+const _properties = [
+  'name',
+  'topLevelDomain',
+  'alpha2Code',
+  'alpha3Code',
+  'timezones',
+  'currencies',
+  'languages'
+];
 
 class CountryProvider {
   BuiltList<Country>? _cache;
@@ -18,7 +27,8 @@ class CountryProvider {
   Future<BuiltList<Country>?> getCountries(
       {onErrorTryCache = false, firstCache = false}) async {
     if (firstCache && cacheIsNotEmpty) return Future.value(_cache);
-    var response = await http.get(Uri.parse(_endpointUrl));
+    
+    var response = await http.get(Uri.parse(_endpointUrl + '?fields=' + _properties.join(',')));
     if (response.statusCode == 200) {
       var countries = standardSerializers.deserialize(jsonDecode(response.body),
               specifiedType: FullType(BuiltList, [FullType(Country)]))
