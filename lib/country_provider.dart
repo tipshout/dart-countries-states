@@ -18,7 +18,8 @@ const _properties = [
   'alpha3Code',
   'timezones',
   'currencies',
-  'languages'
+  'languages',
+  'translations'
 ];
 
 class CountryProvider {
